@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="01-create-demo-order-table-h2" author="lie zeilstra" context="local">
+
+        <createSequence cycle="false"
+                        incrementBy="10"
+                        sequenceName="odr_seq"
+                        startValue="1"/>
+
+        <createTable tableName="demo_order" >
+            <column name="id" type="int">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="employee" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="customer" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet id="01-create-demo-detail-table-h2" author="lie zeilstra" context="local">
+
+        <createSequence cycle="false"
+                        incrementBy="10"
+                        sequenceName="dts_seq"
+                        startValue="1"/>
+
+        <createTable tableName="demo_detail" >
+            <column name="id" type="int">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="odr_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="varchar(255)" encoding="UTF-8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="piece_price" type="decimal(13,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint  baseTableName="demo_detail" baseColumnNames="odr_id" constraintName="dts_odr_fk" referencedTableName="demo_order"
+                                 referencedColumnNames="id" />
+    </changeSet>
+
+</databaseChangeLog>

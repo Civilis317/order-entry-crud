@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="02-insert-demo-data-h2" author="lie zeilstra" context="local">
+
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">The First Order</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Pinkeltje</column>
+            <column name="customer">Droste</column>
+        </insert>
+
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">Another Order</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Pietje Puk</column>
+            <column name="customer">ACME</column>
+        </insert>
+
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">An empty order</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Dikkertje Dap</column>
+            <column name="customer">VRT</column>
+        </insert>
+
+        <insert tableName="demo_detail">
+            <column name="id" valueComputed="(select dts_seq.nextval)" />
+            <column name="odr_id" valueComputed="(select id from demo_order where name = 'The First Order')" />
+            <column name="code">A-121</column>
+            <column name="name">Little duckie</column>
+            <column name="piece_price">14.99</column>
+            <column name="amount">2</column>
+        </insert>
+
+        <insert tableName="demo_detail">
+            <column name="id" valueComputed="(select dts_seq.nextval)" />
+            <column name="odr_id" valueComputed="(select id from demo_order where name = 'The First Order')" />
+            <column name="code">X-300</column>
+            <column name="name">Mountain Bike</column>
+            <column name="piece_price">99.99</column>
+            <column name="amount">1</column>
+        </insert>
+
+        <insert tableName="demo_detail">
+            <column name="id" valueComputed="(select dts_seq.nextval)" />
+            <column name="odr_id" valueComputed="(select id from demo_order where name = 'Another Order')" />
+            <column name="code">X-300</column>
+            <column name="name">Mountain Bike</column>
+            <column name="piece_price">99.59</column>
+            <column name="amount">1</column>
+        </insert>
+
+        <insert tableName="demo_detail">
+            <column name="id" valueComputed="(select dts_seq.nextval)" />
+            <column name="odr_id" valueComputed="(select id from demo_order where name = 'Another Order')" />
+            <column name="code">M-0871</column>
+            <column name="name">Plasma TV</column>
+            <column name="piece_price">799.99</column>
+            <column name="amount">1</column>
+        </insert>
+
+        <insert tableName="demo_detail">
+            <column name="id" valueComputed="(select dts_seq.nextval)" />
+            <column name="odr_id" valueComputed="(select id from demo_order where name = 'Another Order')" />
+            <column name="code">M-4122</column>
+            <column name="name">Radio receiver</column>
+            <column name="piece_price">199.95</column>
+            <column name="amount">3</column>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,35 @@
+spring:
+  profiles:
+    include:
+    - "default"
+  datasource:
+    driver-class-name: "org.h2.Driver"
+    url: "jdbc:h2:mem:orderdb;DB_CLOSE_DELAY=-1;MODE=DB2"
+    username: "sa"
+    password: "sa"
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  h2:
+    console:
+      enabled: true
+  liquibase:
+    change-log: "classpath:liquibase/liquibase-changelog.xml"
+    contexts: "local"
+
+logging:
+  level:
+    org.springframework: "info"
+    net.playground.orderservice: "debug"
+
+server:
+  port: 9094
+
+management:
+  endpoint:
+    logfile:
+      external-file: "logs/order-service/application.log"
+
+app-settings:
+  page-size: 10
