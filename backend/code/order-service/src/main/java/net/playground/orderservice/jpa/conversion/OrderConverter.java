@@ -7,6 +7,26 @@ import net.playground.orderservice.rest.model.OrderDetail;
 
 public class OrderConverter {
 
+    public static String getSortField(String fieldname) {
+        String result = null;
+        switch (fieldname) {
+            case "date":
+                result = "orderDate";
+                break;
+            case "employee":
+                result = "employee";
+                break;
+            case "customer":
+                result = "employee";
+                break;
+            case "description":
+            default:
+                result = "name";
+                break;
+        }
+        return result;
+    }
+
     public static OrderEntity convertOrderToEntity(Order order) {
         OrderEntity entity = new OrderEntity();
         entity.setId(order.getId());
@@ -14,9 +34,9 @@ public class OrderConverter {
         entity.setOrderDate(order.getDate());
         entity.setEmployee(order.getEmployee());
         entity.setCustomer(order.getCustomer());
-        order.getOrderDetails().forEach(d -> entity.add(convertDetailToEntity(d)));
+//        order.getOrderDetails().forEach(d -> entity.add(convertDetailToEntity(d)));
         return entity;
-}
+    }
 
     public static Order convertEntityToOrder(OrderEntity entity) {
         Order order = new Order();
@@ -25,7 +45,7 @@ public class OrderConverter {
         order.setDate(entity.getOrderDate());
         order.setEmployee(entity.getEmployee());
         order.setCustomer(entity.getCustomer());
-        entity.getDetailList().forEach(de -> order.getOrderDetails().add(convertEntityToDetail(de)));
+//        entity.getDetailList().forEach(de -> order.getOrderDetails().add(convertEntityToDetail(de)));
         return order;
     }
 

@@ -1,6 +1,7 @@
 package net.playground.orderservice.rest.controller;
 
 import net.playground.orderservice.exception.OrderServiceException;
+import net.playground.orderservice.jpa.conversion.OrderConverter;
 import net.playground.orderservice.rest.io.QueryParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,7 +53,7 @@ public abstract class AbstractController {
             if (direction == null) {
                 pageRequest = PageRequest.of(Integer.valueOf(queryParams.get(QueryParam.PAGE.toString())) - 1, pageSize);
             } else {
-                pageRequest = PageRequest.of(Integer.valueOf(queryParams.get(QueryParam.PAGE.toString())) - 1, pageSize, direction, "registrationNumber");
+                pageRequest = PageRequest.of(Integer.valueOf(queryParams.get(QueryParam.PAGE.toString())) - 1, pageSize, direction, getSortField(queryParams));
             }
             return pageRequest;
         } else {
@@ -61,8 +62,16 @@ public abstract class AbstractController {
     }
 
     private Sort.Direction getSortDirection(Map<String, String> queryParams) {
-        if (queryParams.containsKey(QueryParam.SORT.toString())) {
-            return Sort.Direction.fromString(queryParams.get(QueryParam.SORT.toString()));
+        if (queryParams.containsKey(QueryParam.SORT_DIRECTION.toString())) {
+            return Sort.Direction.fromString(queryParams.get(QueryParam.SORT_DIRECTION.toString()));
+        } else {
+            return null;
+        }
+    }
+
+    private String getSortField(Map<String, String> queryParams) {
+        if (queryParams.containsKey(QueryParam.SORT_FIELD.toString())) {
+            return OrderConverter.getSortField(queryParams.get(QueryParam.SORT_FIELD.toString()));
         } else {
             return null;
         }

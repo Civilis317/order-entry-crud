@@ -29,9 +29,8 @@ public class OrderController extends AbstractController {
     OrderResponse getOrderList(@RequestParam Map<String, String> queryParams) {
         RequestValidator.validate(queryParams);
         PageRequest pageRequest = getPageRequest(queryParams);
-
         OrderResponse response = new OrderResponse();
-        response.setOrderList(storageService.getAllOrders());
+        response.assimilatePage(storageService.find(pageRequest));
         return response;
     }
 
@@ -40,7 +39,7 @@ public class OrderController extends AbstractController {
     OrderResponse getOrder(@PathVariable(name = "id") Long id) {
         RequestValidator.validate(id);
         OrderResponse response = new OrderResponse();
-        response.getOrderList().add(storageService.getOrder(id));
+        response.setSingleItem(storageService.getOrder(id));
         return response;
     }
 
@@ -50,7 +49,7 @@ public class OrderController extends AbstractController {
         RequestValidator.validate(request);
         request.getOrder().setDate(new Date());
         OrderResponse response = new OrderResponse();
-        response.getOrderList().add(storageService.save(request.getOrder()));
+        response.setSingleItem(storageService.save(request.getOrder()));
         return response;
     }
 }

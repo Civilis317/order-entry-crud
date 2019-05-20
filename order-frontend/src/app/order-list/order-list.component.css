@@ -1,0 +1,18 @@
+.container {
+  /*color: blue;*/
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.container table {
+  width: 80%;
+}
+
+.table-hover> tbody> tr:hover{
+  background-color: lemonchiffon;
+  cursor: pointer;
+}
+
+thead {
+  cursor: pointer;
+}

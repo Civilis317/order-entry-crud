@@ -10,72 +10,232 @@
 
         <insert tableName="demo_order">
             <column name="id" valueComputed="(select odr_seq.nextval)" />
-            <column name="name">The First Order</column>
+            <column name="name">Pink Floyd</column>
             <column name="order_date">now()</column>
-            <column name="employee">Pinkeltje</column>
-            <column name="customer">Droste</column>
+            <column name="employee">Ingrid</column>
+            <column name="customer">Unilever</column>
         </insert>
 
         <insert tableName="demo_order">
             <column name="id" valueComputed="(select odr_seq.nextval)" />
-            <column name="name">Another Order</column>
+            <column name="name">Mike Oldfield</column>
             <column name="order_date">now()</column>
-            <column name="employee">Pietje Puk</column>
-            <column name="customer">ACME</column>
+            <column name="employee">Sytze</column>
+            <column name="customer">ACME Corp.</column>
         </insert>
 
         <insert tableName="demo_order">
             <column name="id" valueComputed="(select odr_seq.nextval)" />
-            <column name="name">An empty order</column>
+            <column name="name">Dolly Dots</column>
             <column name="order_date">now()</column>
-            <column name="employee">Dikkertje Dap</column>
-            <column name="customer">VRT</column>
+            <column name="employee">Tessa</column>
+            <column name="customer">Philips</column>
         </insert>
 
-        <insert tableName="demo_detail">
-            <column name="id" valueComputed="(select dts_seq.nextval)" />
-            <column name="odr_id" valueComputed="(select id from demo_order where name = 'The First Order')" />
-            <column name="code">A-121</column>
-            <column name="name">Little duckie</column>
-            <column name="piece_price">14.99</column>
-            <column name="amount">2</column>
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">The Bangles</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Hans</column>
+            <column name="customer">Shell</column>
         </insert>
 
-        <insert tableName="demo_detail">
-            <column name="id" valueComputed="(select dts_seq.nextval)" />
-            <column name="odr_id" valueComputed="(select id from demo_order where name = 'The First Order')" />
-            <column name="code">X-300</column>
-            <column name="name">Mountain Bike</column>
-            <column name="piece_price">99.99</column>
-            <column name="amount">1</column>
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">Back Street Boys</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Ingrid</column>
+            <column name="customer">BOIP</column>
         </insert>
 
-        <insert tableName="demo_detail">
-            <column name="id" valueComputed="(select dts_seq.nextval)" />
-            <column name="odr_id" valueComputed="(select id from demo_order where name = 'Another Order')" />
-            <column name="code">X-300</column>
-            <column name="name">Mountain Bike</column>
-            <column name="piece_price">99.59</column>
-            <column name="amount">1</column>
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">The Beatles</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Ingrid</column>
+            <column name="customer">AHolt</column>
         </insert>
 
-        <insert tableName="demo_detail">
-            <column name="id" valueComputed="(select dts_seq.nextval)" />
-            <column name="odr_id" valueComputed="(select id from demo_order where name = 'Another Order')" />
-            <column name="code">M-0871</column>
-            <column name="name">Plasma TV</column>
-            <column name="piece_price">799.99</column>
-            <column name="amount">1</column>
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">The Doors</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Hans</column>
+            <column name="customer">The Body Shop</column>
         </insert>
 
-        <insert tableName="demo_detail">
-            <column name="id" valueComputed="(select dts_seq.nextval)" />
-            <column name="odr_id" valueComputed="(select id from demo_order where name = 'Another Order')" />
-            <column name="code">M-4122</column>
-            <column name="name">Radio receiver</column>
-            <column name="piece_price">199.95</column>
-            <column name="amount">3</column>
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">Katie Melua</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Pieter</column>
+            <column name="customer">Unilever</column>
         </insert>
+
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">Stray Cats</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Pieter</column>
+            <column name="customer">Venz</column>
+        </insert>
+
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">Davina Michelle</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Sytze</column>
+            <column name="customer">Nationale Nederlanden</column>
+        </insert>
+
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">The Cats</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Ingrid</column>
+            <column name="customer">HEMA</column>
+        </insert>
+
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">Queen</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Hans</column>
+            <column name="customer">Delhaize</column>
+        </insert>
+
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">Vader Abraham</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Ingrid</column>
+            <column name="customer">Google</column>
+        </insert>
+
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">KC and the Sunshine Band</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Sytze</column>
+            <column name="customer">Microsoft</column>
+        </insert>
+
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">Clannad</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Hans</column>
+            <column name="customer">McAfee</column>
+        </insert>
+
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">Enya</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Pieter</column>
+            <column name="customer">Gazprom</column>
+        </insert>
+
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">Loreena McKennit</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Tessa</column>
+            <column name="customer">Jumbo</column>
+        </insert>
+
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">The Waterboys</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Goedele</column>
+            <column name="customer">Adidas</column>
+        </insert>
+
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">Angelo Branduardi</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Pieter</column>
+            <column name="customer">Hans Anders</column>
+        </insert>
+
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">NSync</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Ingrid</column>
+            <column name="customer">Menzis</column>
+        </insert>
+
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">The Eagles</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Ingrid</column>
+            <column name="customer">Nutella</column>
+        </insert>
+
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">Alizee</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Frits</column>
+            <column name="customer">Vialis</column>
+        </insert>
+
+        <insert tableName="demo_order">
+            <column name="id" valueComputed="(select odr_seq.nextval)" />
+            <column name="name">Charles Aznavour</column>
+            <column name="order_date">now()</column>
+            <column name="employee">Sytze</column>
+            <column name="customer">ING Bank</column>
+        </insert>
+
+        <!--<insert tableName="demo_detail">-->
+        <!--<column name="id" valueComputed="(select dts_seq.nextval)" />-->
+        <!--<column name="odr_id" valueComputed="(select id from demo_order where name = 'The First Order')" />-->
+        <!--<column name="code">A-121</column>-->
+        <!--<column name="name">Little duckie</column>-->
+        <!--<column name="piece_price">14.99</column>-->
+        <!--<column name="amount">2</column>-->
+        <!--</insert>-->
+
+        <!--<insert tableName="demo_detail">-->
+        <!--<column name="id" valueComputed="(select dts_seq.nextval)" />-->
+        <!--<column name="odr_id" valueComputed="(select id from demo_order where name = 'The First Order')" />-->
+        <!--<column name="code">X-300</column>-->
+        <!--<column name="name">Mountain Bike</column>-->
+        <!--<column name="piece_price">99.99</column>-->
+        <!--<column name="amount">1</column>-->
+        <!--</insert>-->
+
+        <!--<insert tableName="demo_detail">-->
+        <!--<column name="id" valueComputed="(select dts_seq.nextval)" />-->
+        <!--<column name="odr_id" valueComputed="(select id from demo_order where name = 'Another Order')" />-->
+        <!--<column name="code">X-300</column>-->
+        <!--<column name="name">Mountain Bike</column>-->
+        <!--<column name="piece_price">99.59</column>-->
+        <!--<column name="amount">1</column>-->
+        <!--</insert>-->
+
+        <!--<insert tableName="demo_detail">-->
+        <!--<column name="id" valueComputed="(select dts_seq.nextval)" />-->
+        <!--<column name="odr_id" valueComputed="(select id from demo_order where name = 'Another Order')" />-->
+        <!--<column name="code">M-0871</column>-->
+        <!--<column name="name">Plasma TV</column>-->
+        <!--<column name="piece_price">799.99</column>-->
+        <!--<column name="amount">1</column>-->
+        <!--</insert>-->
+
+        <!--<insert tableName="demo_detail">-->
+        <!--<column name="id" valueComputed="(select dts_seq.nextval)" />-->
+        <!--<column name="odr_id" valueComputed="(select id from demo_order where name = 'Another Order')" />-->
+        <!--<column name="code">M-4122</column>-->
+        <!--<column name="name">Radio receiver</column>-->
+        <!--<column name="piece_price">199.95</column>-->
+        <!--<column name="amount">3</column>-->
+        <!--</insert>-->
 
     </changeSet>
 

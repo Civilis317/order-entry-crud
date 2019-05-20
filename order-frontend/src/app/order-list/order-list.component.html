@@ -1,3 +1,45 @@
-<p>
-  order-list works!
-</p>
+<div class="container">
+  <h2>Orders</h2>
+  <p>Overview of orders</p>
+  <table class="table-striped table-hover table-bordered">
+    <thead>
+    <tr>
+      <th (click)="requestSort('date')">Date</th>
+      <th (click)="requestSort('description')">Description</th>
+      <th (click)="requestSort('customer')">Customer</th>
+      <th (click)="requestSort('employee')">Employee</th>
+      <th>&nbsp;</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let row of dataSource; let i=index" (click)="select(row.id)">
+      <td width="10%;"><span>{{row.date | date: 'dd-MM-yyyy'}}</span></td>
+      <td width="45%;"><span>{{row.description}}</span></td>
+      <td width="15%;"><span>{{row.customer}}</span></td>
+      <td width="10%;"><span>{{row.employee}}</span></td>
+      <td width="5%;">
+        <button type="button" title="remove" class="btn btn-link btn-xs" (click)="delete(row.id)">
+          <span octicon="trashcan" color="red" width="32"></span>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+
+    <tfoot>
+    <tr>
+      <td style="text-align:right" colspan="4">
+        <button *ngFor="let pageButton of pageButtons"
+                class="btn btn-default btn-xs"
+                title="page {{pageButton}}"
+                (click)="requestPage(pageButton)"
+                [disabled]="pageButton==settings.page">{{pageButton}}
+        </button>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    </tfoot>
+  </table>
+
+
+</div>
+

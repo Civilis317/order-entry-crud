@@ -7,7 +7,8 @@ import java.util.List;
 
 public enum QueryParam {
     PAGE("page"),
-    SORT("sort"),
+    SORT_FIELD("sort-field"),
+    SORT_DIRECTION("sort-direction"),
     PRODUCTCODE("product"),
     EMPLOYEE("employee"),
     CUSTOMER("customer");

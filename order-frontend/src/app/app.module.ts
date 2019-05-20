@@ -1,24 +1,49 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { OrderListComponent } from './order-list/order-list.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {NavbarComponent} from './navbar/navbar.component';
+import {OrderListComponent} from './order-list/order-list.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatPaginatorModule,
+  MatTableModule
+} from "@angular/material";
+import {FormsModule} from "@angular/forms";
+import { ElementComponent } from './element/element.component';
+import { OcticonDirective } from './octicon-directive';
+import {OrderService} from "./services/order.service";
+import {StateService} from "./services/state.service";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    OrderListComponent
+    OrderListComponent,
+    ElementComponent,
+    OcticonDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
-  providers: [],
+  providers: [StateService, OrderService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

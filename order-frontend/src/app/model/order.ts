@@ -5,6 +5,9 @@ export interface Order {
     description: string,
     date: Date,
     employee: string,
-    customer: string,
-    orderDetails: [OrderDetail];
+    customer: string;
+    // orderDetails: [OrderDetail];
+
+
+
 }

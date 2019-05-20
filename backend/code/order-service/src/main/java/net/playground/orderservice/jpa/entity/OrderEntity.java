@@ -35,13 +35,13 @@ public class OrderEntity {
     @Column(name="customer")
     private String customer;
 
-    @OneToMany(mappedBy = "orderEntity", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
-    private List<DetailEntity> detailList = new ArrayList<>(128);
-
-    public void add(DetailEntity detailEntity) {
-        if(detailEntity != null) {
-            this.detailList.add(detailEntity);
-            detailEntity.setOrderEntity(this);
-        }
-    }
+//    @OneToMany(mappedBy = "orderEntity", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+//    private List<DetailEntity> detailList = new ArrayList<>(128);
+//
+//    public void add(DetailEntity detailEntity) {
+//        if(detailEntity != null) {
+//            this.detailList.add(detailEntity);
+//            detailEntity.setOrderEntity(this);
+//        }
+//    }
 }

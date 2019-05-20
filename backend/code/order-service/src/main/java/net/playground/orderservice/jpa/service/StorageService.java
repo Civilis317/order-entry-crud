@@ -6,6 +6,9 @@ import net.playground.orderservice.jpa.repository.OrderRepository;
 import net.playground.orderservice.rest.model.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -22,10 +25,12 @@ public class StorageService {
         this.repository = repository;
     }
 
-    public List<Order> getAllOrders() {
-        List<Order> orderList = new ArrayList<>(1024);
-        repository.findAll().forEach(oe -> orderList.add(OrderConverter.convertEntityToOrder(oe)));
-        return orderList;
+    public Page<Order> find(PageRequest pageRequest) {
+        List<Order> orderList = new ArrayList<>(pageRequest.getPageSize());
+        Page<OrderEntity> page = repository.findAll(pageRequest);
+        page.forEach(oe -> orderList.add(OrderConverter.convertEntityToOrder(oe)));
+        Page<Order> orderPage = new PageImpl<>(orderList, pageRequest, page.getTotalElements());
+        return orderPage;
     }
 
     public Order getOrder(Long id) {

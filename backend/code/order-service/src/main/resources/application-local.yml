@@ -32,4 +32,4 @@ management:
       external-file: "logs/order-service/application.log"
 
 app-settings:
-  page-size: 10
+  page-size: 5
