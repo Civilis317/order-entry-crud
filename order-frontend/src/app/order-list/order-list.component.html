@@ -1,6 +1,7 @@
 <div class="container">
   <h2>Orders</h2>
   <p>Overview of orders</p>
+
   <table class="table-striped table-hover table-bordered">
     <thead>
     <tr>
@@ -13,10 +14,10 @@
     </thead>
     <tbody>
     <tr *ngFor="let row of dataSource; let i=index" (click)="select(row.id)">
-      <td width="10%;"><span>{{row.date | date: 'dd-MM-yyyy'}}</span></td>
-      <td width="45%;"><span>{{row.description}}</span></td>
+      <td width="15%;"><span>{{row.date | date: 'dd-MM-yyyy'}}</span></td>
+      <td width="55%;"><span>{{row.description}}</span></td>
       <td width="15%;"><span>{{row.customer}}</span></td>
-      <td width="10%;"><span>{{row.employee}}</span></td>
+      <td width="15%;"><span>{{row.employee}}</span></td>
       <td width="5%;">
         <button type="button" title="remove" class="btn btn-link btn-xs" (click)="delete(row.id)">
           <span octicon="trashcan" color="red" width="32"></span>

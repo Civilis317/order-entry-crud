@@ -22,9 +22,10 @@ export class OrderListComponent implements OnInit {
   }
 
   ngOnInit() {
+    // see if state was stored
     this.settings = this.stateService.get();
     if (!this.settings) {
-      console.log("no settings found, creating new")
+      // create new settings for the order table
       this.settings = new OrderListSettings();
       this.settings.page = 1;
       this.settings.sortField = 'description';
@@ -33,6 +34,9 @@ export class OrderListComponent implements OnInit {
     this.retrievePage();
   }
 
+  /**
+   * Call orderService to retrieve new paged data
+   */
   private retrievePage() {
     this.orderService.getPage(this.settings.page,
       this.settings.sortField,
@@ -42,19 +46,24 @@ export class OrderListComponent implements OnInit {
       this.totalPages = response.totalPages;
       this.calculatePagination();
 
-      this.settings.page = response.page;
-
-      console.log(`pushing: ${this.settings.page}, ${this.settings.sortDirection}`)
-
+      // save this state
       this.stateService.push(this.settings);
-
     })
   }
 
+  /**
+   * target for the row-level click
+   * purpose is to select an order from the list by its id
+   * @param id
+   */
   public select(id: number): void {
     console.log(`selected order: ${id}`);
   }
 
+  /**
+   * target for the delete-order button
+   * @param id
+   */
   public delete(id: number): void {
     if (confirm("are you sure?")) {
       console.log(`delete called for order: ${id}`);
@@ -62,15 +71,25 @@ export class OrderListComponent implements OnInit {
     event.stopPropagation();
   }
 
+  /**
+   * target for the pagination buttons
+   * @param pageRequest
+   */
   public requestPage(pageRequest: number): void {
     this.settings.page = pageRequest;
     this.retrievePage();
   }
 
+  /**
+   * target for the sort click actions
+   * todo: keep track of direction per field
+   * probably some headerField-object must be developed for this
+   * @param field
+   */
   public requestSort(field: string): void {
-    console.log(`sort requested on field: ${field}`);
     this.settings.sortField = field;
 
+    // toggle direction
     if (!this.settings.sortDirection){
       this.settings.sortDirection = 'asc';
 
@@ -84,6 +103,11 @@ export class OrderListComponent implements OnInit {
 
   }
 
+  /**
+   * to create an array of pagination buttons.
+   * for now it is an array of (page-)numbers.
+   * should probably be reworked into an pagination button object
+   */
   private calculatePagination(): void {
     // todo: something smarter than 1 button per page
     this.pageButtons = [];
