@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 import java.util.Map;
 
+import static org.springframework.web.bind.annotation.RequestMethod.*;
+
 @RestController
+//@CrossOrigin(origins = "http://localhost:4200", methods = {GET, POST, PUT, DELETE} )
 @RequestMapping("/secured/api/order")
 public class OrderController extends AbstractController {
     private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
@@ -23,7 +26,6 @@ public class OrderController extends AbstractController {
         this.storageService = storageService;
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = {"/get", "/list"})
     public @ResponseBody
     OrderResponse getOrderList(@RequestParam Map<String, String> queryParams) {
@@ -43,7 +45,7 @@ public class OrderController extends AbstractController {
         return response;
     }
 
-    @RequestMapping(value = {"/save", "/update"}, method = {RequestMethod.POST, RequestMethod.PUT})
+    @RequestMapping(value = {"/save", "/update"}, method = {POST, PUT})
     public @ResponseBody
     OrderResponse saveOrder(@RequestBody OrderRequest request) {
         RequestValidator.validate(request);
@@ -51,5 +53,10 @@ public class OrderController extends AbstractController {
         OrderResponse response = new OrderResponse();
         response.setSingleItem(storageService.save(request.getOrder()));
         return response;
+    }
+
+    @DeleteMapping(value = "/delete/{id}")
+    public @ResponseBody Long deleteOrder(@PathVariable(name = "id") Long id) {
+        return storageService.delete(id);
     }
 }

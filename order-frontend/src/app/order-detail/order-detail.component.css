@@ -1,0 +1,23 @@
+.container {
+  /*color: blue;*/
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.detail-column{
+  background-color: grey;
+}
+
+.detail-column-alice {
+  background-color: aliceblue;
+}
+
+.detail-column-azure {
+  background-color: azure;
+}
+
+.detail-label {
+  text-align: left;
+  padding-top: 12px;
+  font-weight: bold;
+}

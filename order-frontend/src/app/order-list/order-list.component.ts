@@ -3,6 +3,7 @@ import {OrderService} from '../services/order.service';
 import {Order} from '../model/order';
 import {OrderListSettings} from "../model/order-list-settings";
 import {StateService} from "../services/state.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-order-list',
@@ -17,7 +18,8 @@ export class OrderListComponent implements OnInit {
 
   constructor(
     private orderService: OrderService,
-    private stateService: StateService
+    private stateService: StateService,
+    private router: Router
   ) {
   }
 
@@ -37,7 +39,7 @@ export class OrderListComponent implements OnInit {
   /**
    * Call orderService to retrieve new paged data
    */
-  private retrievePage() {
+  private retrievePage(): void {
     this.orderService.getPage(this.settings.page,
       this.settings.sortField,
       this.settings.sortDirection
@@ -57,7 +59,11 @@ export class OrderListComponent implements OnInit {
    * @param id
    */
   public select(id: number): void {
-    console.log(`selected order: ${id}`);
+    this.router.navigate(['details', id]);
+  }
+
+  public new(): void {
+    this.router.navigate(['details']);
   }
 
   /**
@@ -66,7 +72,11 @@ export class OrderListComponent implements OnInit {
    */
   public delete(id: number): void {
     if (confirm("are you sure?")) {
-      console.log(`delete called for order: ${id}`);
+      this.orderService.deleteOrder(id).subscribe(response => {
+        if (response == id) {
+          this.retrievePage();
+        }
+      })
     }
     event.stopPropagation();
   }

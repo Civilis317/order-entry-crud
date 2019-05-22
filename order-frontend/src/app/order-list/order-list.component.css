@@ -16,3 +16,9 @@
 thead {
   cursor: pointer;
 }
+
+button:disabled {
+  color: crimson;
+  background-color: ghostwhite;
+  font-weight: bold;
+}

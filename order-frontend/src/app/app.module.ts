@@ -19,6 +19,7 @@ import { ElementComponent } from './element/element.component';
 import { OcticonDirective } from './octicon-directive';
 import {OrderService} from "./services/order.service";
 import {StateService} from "./services/state.service";
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {StateService} from "./services/state.service";
     NavbarComponent,
     OrderListComponent,
     ElementComponent,
-    OcticonDirective
+    OcticonDirective,
+    OrderDetailComponent
   ],
   imports: [
     BrowserModule,

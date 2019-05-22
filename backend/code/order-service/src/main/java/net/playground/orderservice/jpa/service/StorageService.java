@@ -42,4 +42,10 @@ public class StorageService {
         OrderEntity savedEntity = repository.save(OrderConverter.convertOrderToEntity(order));
         return OrderConverter.convertEntityToOrder(savedEntity);
     }
+
+    public Long delete(Long id) {
+        OrderEntity entity = repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Record not found for id: " + id));
+        repository.delete(entity);
+        return id;
+    }
 }

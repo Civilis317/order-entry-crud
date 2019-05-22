@@ -20,7 +20,7 @@
       <td width="15%;"><span>{{row.employee}}</span></td>
       <td width="5%;">
         <button type="button" title="remove" class="btn btn-link btn-xs" (click)="delete(row.id)">
-          <span octicon="trashcan" color="red" width="32"></span>
+          <span octicon="trashcan" color="red" width="16"></span>
         </button>
       </td>
     </tr>
@@ -41,6 +41,13 @@
     </tfoot>
   </table>
 
+  <br/>
+
+  <div>
+    <button type="button" title="remove" class="btn btn-primary btn-sm" (click)="new()">
+      <span octicon="plus" color="white" width="16"></span>&nbsp; New order
+    </button>
+  </div>
 
 </div>
 

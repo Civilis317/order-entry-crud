@@ -1,0 +1,95 @@
+<div class="container">
+
+  <h2>Order detail</h2>
+  <p>Details of order: {{worker.id}}</p>
+
+
+  <div class="row" style="height: 40px;">
+    <div class="col-sm-2"><a routerLink="/overview">Back to Order overview</a></div>
+    <div class="col-sm-4">
+      <div *ngIf="alert.active" class="alert alert-success alert-dismissible fade show p-2" role="alert">
+        <strong>Information: </strong> {{alert.msg}}
+        <button type="button" class="close p-1" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2 detail-column-alice">&nbsp;</div>
+    <div class="col-sm-4 detail-column-alice">
+      &nbsp;
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2 detail-column-alice"><label class="detail-label">Order number</label></div>
+    <div class="col-sm-4 detail-column-alice">
+      <input readonly="readonly" value="{{worker.id}}" type="text" name="orderid" id="orderid" readonly="true"
+             class="form-control input-sm"/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2 detail-column-alice"><label class="detail-label">Date</label></div>
+    <div class="col-sm-4 detail-column-alice">
+      <input readonly="readonly" value="{{worker.date | date: 'dd-MM-yyyy'}}" type="text" name="orderdate"
+             id="orderdate" readonly="true"
+             class="form-control input-sm"/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2 detail-column-alice"><label class="detail-label">Description</label></div>
+    <div class="col-sm-4 detail-column-alice">
+      <input [(ngModel)]="worker.description" type="text" name="orderdesc" id="orderdesc"
+             class="form-control input-sm" required autofocus/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2 detail-column-alice"><label class="detail-label">Customer</label></div>
+    <div class="col-sm-4 detail-column-alice">
+      <input [(ngModel)]="worker.customer" type="text" name="ordercustomer" id="ordercustomer"
+             class="form-control input-sm" required/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2 detail-column-alice"><label class="detail-label">Employee</label></div>
+    <div class="col-sm-4 detail-column-alice">
+      <input [(ngModel)]="worker.employee" type="text" name="orderemployee" id="orderemployee"
+             class="form-control input-sm" required/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2 detail-column-alice">&nbsp;</div>
+    <div class="col-sm-4 detail-column-alice">
+      &nbsp;
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2 detail-column-alice">
+      <button class="btn btn-danger btn-sm" (click)="cancel()"><span octicon="x" color="white" width="16"></span>&nbsp;
+        Cancel
+      </button>
+    </div>
+    <div class="col-sm-4 detail-column-alice">
+      <button class="btn btn-success btn-sm" (click)="save()"><span octicon="check" color="white" width="16"></span>&nbsp;
+        Save
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2 detail-column-alice">&nbsp;</div>
+    <div class="col-sm-4 detail-column-alice">
+      &nbsp;
+    </div>
+  </div>
+
+</div>
