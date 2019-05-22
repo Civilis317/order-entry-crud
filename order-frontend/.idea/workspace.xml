@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e8b95ed-061a-421f-b2d6-76795bc024cc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../backend/code/order-service/src/main/java/net/playground/orderservice/security/SimpleCORSFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/model/alert.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/model/order-request.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/code/order-service/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/code/order-service/logs/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/code/order-service/src/main/java/net/playground/orderservice/jpa/service/StorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/code/order-service/src/main/java/net/playground/orderservice/jpa/service/StorageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/code/order-service/src/main/java/net/playground/orderservice/rest/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/code/order-service/src/main/java/net/playground/orderservice/rest/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/order-list/order-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/order-list/order-list.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/order-list/order-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/order-list/order-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/order-list/order-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/order-list/order-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/order.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/order.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/code/order-service/src/main/java/net/playground/orderservice/security/SimpleCORSFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/code/order-service/src/main/java/net/playground/orderservice/security/SimpleCORSFilter.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -40,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/order-list/order-list.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-222">
-              <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+            <state relative-caret-position="147">
+              <caret line="68" column="5" lean-forward="true" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
@@ -52,7 +41,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/services/order.service.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="261">
@@ -322,12 +311,12 @@
       <workItem from="1558508114683" duration="239000" />
       <workItem from="1558508608383" duration="383000" />
       <workItem from="1558509636524" duration="573000" />
-      <workItem from="1558510229858" duration="1707000" />
+      <workItem from="1558510229858" duration="2257000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63965000" />
+    <option name="totallyTimeSpent" value="64515000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -342,8 +331,8 @@
     <frame x="0" y="23" width="1440" height="824" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5833333" visible="true" weight="0.22103004" />
-      <window_info id="Structure" order="1" sideWeight="0.41666666" side_tool="true" visible="true" weight="0.22103004" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5833333" visible="true" weight="0.31759655" />
+      <window_info id="Structure" order="1" sideWeight="0.41666666" side_tool="true" visible="true" weight="0.31759655" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
@@ -571,22 +560,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/order-list/order-list.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-222">
-          <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/services/order.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
           <caret line="32" column="26" lean-forward="true" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/order-list/order-list.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="68" column="5" lean-forward="true" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
           </folding>
         </state>
       </provider>
