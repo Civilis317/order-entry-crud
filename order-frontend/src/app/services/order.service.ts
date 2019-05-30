@@ -4,15 +4,17 @@ import {Observable} from 'rxjs';
 import {OrderResponse} from "../model/order-response";
 import {Order} from "../model/order";
 import {OrderRequest} from "../model/order-request";
+import {environment} from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
 
-  private readonly URL: string = "http://localhost:9094/order-service/secured/api/order";
+  private readonly URL: string ;
 
   constructor(protected httpClient: HttpClient) {
+    this.URL = `${environment.orderservice_url}`;
   }
 
   public getPage(page: number, sortField: string, sortDirection: string): Observable<OrderResponse> {

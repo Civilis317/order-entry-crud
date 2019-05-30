@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  orderservice_url: 'http://localhost:9094/order-service/secured/api/order'
+
 };
 
 /*
