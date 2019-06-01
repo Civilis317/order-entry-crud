@@ -20,7 +20,7 @@ import { OcticonDirective } from './octicon-directive';
 import {OrderService} from "./services/order.service";
 import {StateService} from "./services/state.service";
 import { OrderDetailComponent } from './order-detail/order-detail.component';
-
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -37,6 +37,7 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    AngularFontAwesomeModule,
     MatButtonModule,
     MatCheckboxModule,
     MatTableModule,
