@@ -5,23 +5,25 @@
   <table class="table-striped table-hover table-bordered">
     <thead>
     <tr>
-      <th (click)="requestSort('date')">Date</th>
-      <th (click)="requestSort('description')">Description</th>
-      <th (click)="requestSort('customer')">Customer</th>
-      <th (click)="requestSort('employee')">Employee</th>
-      <th>&nbsp;</th>
+      <ng-container  *ngFor="let header of columnHeaders; let i=index" >
+        <th *ngIf="header.sortField" width="{{header.size}};" (click)="requestSort(header.sortField)">
+          {{header.value}}&nbsp;<fa name="{{header.sortClass}}"></fa>
+        </th>
+        <th *ngIf="!header.sortField" width="{{header.size}};">
+          {{header.value}}&nbsp;
+        </th>
+      </ng-container>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let row of dataSource; let i=index" (click)="select(row.id)">
-      <td width="15%;"><span>{{row.date | date: 'dd-MM-yyyy'}}</span></td>
-      <td width="55%;"><span>{{row.description}}</span></td>
-      <td width="15%;"><span>{{row.customer}}</span></td>
-      <td width="15%;"><span>{{row.employee}}</span></td>
-      <td width="5%;">
+      <td><span>{{row.date | date: 'dd-MM-yyyy'}}</span></td>
+      <td><span>{{row.description}}</span></td>
+      <td><span>{{row.customer}}</span></td>
+      <td><span>{{row.employee}}</span></td>
+      <td>
         <button type="button" title="remove" class="btn btn-link btn-xs" (click)="delete(row.id)">
           <fa name="trash" size="lg" style="color:red"></fa>
-<!--          <span octicon="trashcan" color="red" width="16"></span>-->
         </button>
       </td>
     </tr>

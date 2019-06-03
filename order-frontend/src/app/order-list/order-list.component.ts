@@ -4,6 +4,7 @@ import {Order} from '../model/order';
 import {OrderListSettings} from "../model/order-list-settings";
 import {StateService} from "../services/state.service";
 import {Router} from "@angular/router";
+import {ColumnHeader} from "../model/column-header";
 
 @Component({
   selector: 'app-order-list',
@@ -11,6 +12,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./order-list.component.css']
 })
 export class OrderListComponent implements OnInit {
+  columnHeaders: ColumnHeader[] = new Array<ColumnHeader>();
   dataSource: Order[];
   totalPages: number;
   pageButtons: number[];
@@ -32,6 +34,7 @@ export class OrderListComponent implements OnInit {
       this.settings.page = 1;
       this.settings.sortField = 'description';
       this.settings.sortDirection = 'asc';
+      this.createColumnHeaders();
     }
     this.retrievePage();
   }
@@ -51,6 +54,15 @@ export class OrderListComponent implements OnInit {
       // save this state
       this.stateService.push(this.settings);
     })
+  }
+
+  private createColumnHeaders() : void {
+    this.columnHeaders.push(new ColumnHeader("Date", "15%", "date", "fas fa-sort"));
+    this.columnHeaders.push(new ColumnHeader("Description", "55%", "description", "fas fa-sort"));
+    this.columnHeaders.push(new ColumnHeader("Customer", "15%", null, null));
+    // this.columnHeaders.push(new ColumnHeader("Customer", "15%", "customer", "fas fa-sort"));
+    this.columnHeaders.push(new ColumnHeader("Employee", "15%", "employee", "fas fa-sort"));
+    this.columnHeaders.push(new ColumnHeader("", "5%", null, null))
   }
 
   /**
