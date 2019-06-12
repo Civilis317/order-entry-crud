@@ -1,48 +1,39 @@
-import { Injectable } from '@angular/core';
-import {OrderListSettings} from "../model/order-list-settings";
+import {Injectable} from '@angular/core';
 import {Observable, Subject} from "rxjs";
 
 @Injectable()
 export class StateService {
-  private storageMap: Map<string, OrderListSettings> = new Map<string, OrderListSettings>();
-  static ORDERLIST_SETTINGS: string = 'ORDERLIST_SETTINGS';
+  private storageMap = new Map<string, any>();
+  public static ORDERLIST_SETTINGS = 'ORDERLIST_SETTINGS';
 
-  constructor() { }
+  private displayName: Subject<string> = new Subject<string>();
 
-  public push(settings: OrderListSettings): void {
-    this.storageMap.set(StateService.ORDERLIST_SETTINGS, settings);
+  public pushDisplayname(displayName: string): void {
+    this.displayName.next(displayName);
+  }
+
+  public clearDisplayname(): void {
+    this.displayName.next();
+  }
+
+  public getDisplayname(): Observable<string> {
+    return this.displayName.asObservable();
+  }
+
+  public push(key: string, value: any): void {
+    this.storageMap.set(key, value);
+  }
+
+  public remove(key: string): void {
+    this.storageMap.delete(key);
   }
 
   public clear(): void {
-    this.storageMap.delete(StateService.ORDERLIST_SETTINGS);
+    this.storageMap.clear();
   }
 
-  public get(): OrderListSettings {
-    return this.storageMap.get(StateService.ORDERLIST_SETTINGS);
+  public pop(key: string): any {
+    return this.storageMap.get(key);
   }
-
-
-
-
-  // settings:  Subject<OrderListSettings>;
-  //
-  // constructor() {
-  //   this.settings = new Subject<OrderListSettings>();
-  // }
-
-  // private subject = new Subject<OrderListSettings>();
-  //
-  // push(settings: OrderListSettings) {
-  //   this.subject.next(settings);
-  // }
-  //
-  // clearclear() {
-  //   this.subject.next();
-  // }
-  //
-  // get(): Observable<OrderListSettings> {
-  //   return this.subject.asObservable();
-  // }
-
 
 }

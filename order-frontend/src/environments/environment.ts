@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  orderservice_url: 'http://localhost:9094/order-service/secured/api/order'
+  backend: 'http://localhost:9094/order-service',
+  order_api: 'secured/api/order',
+  slo_url: 'logout/cas'
+  // orderservice_url: 'http://localhost:9094/order-service/secured/api/order'
 
 };
 

@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
@@ -21,6 +21,8 @@ import {OrderService} from "./services/order.service";
 import {StateService} from "./services/state.service";
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import {CredentialInterceptor} from "./interceptor/CredentialInterceptor";
+import {CsrfRequestsInterceptor} from "./interceptor/CsrfRequestsInterceptor";
 
 @NgModule({
   declarations: [
@@ -45,7 +47,12 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     MatFormFieldModule,
     MatInputModule
   ],
-  providers: [StateService, OrderService],
+  providers: [
+    StateService,
+    OrderService,
+    {provide: HTTP_INTERCEPTORS, useClass: CredentialInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: CsrfRequestsInterceptor, multi: true }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

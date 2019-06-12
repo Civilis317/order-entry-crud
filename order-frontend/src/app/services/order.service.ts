@@ -14,7 +14,7 @@ export class OrderService {
   private readonly URL: string ;
 
   constructor(protected httpClient: HttpClient) {
-    this.URL = `${environment.orderservice_url}`;
+    this.URL = `${environment.backend}/${environment.order_api}`;
   }
 
   public getPage(page: number, sortField: string, sortDirection: string): Observable<OrderResponse> {
@@ -22,6 +22,7 @@ export class OrderService {
       .set('page', `${page}`)
       .append('sort-field', sortField)
       .append('sort-direction', sortDirection);
+    // let options = {params: urlParams, withCredentials: true}
     let options = {params: urlParams}
     return this.httpClient.get<OrderResponse>(`${this.URL}/get`, options);
   }

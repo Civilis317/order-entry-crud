@@ -16,7 +16,6 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/secured/api/order")
 public class OrderController extends AbstractController {
     private static final Logger logger = LoggerFactory.getLogger(OrderController.class);

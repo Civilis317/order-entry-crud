@@ -17,6 +17,8 @@ spring:
   liquibase:
     change-log: "classpath:liquibase/liquibase-changelog.xml"
     contexts: "local"
+  thymeleaf:
+    cache: false
 
 logging:
   level:
@@ -33,3 +35,22 @@ management:
 
 app-settings:
   page-size: 5
+
+cas:
+  server:
+    url: "https://localhost:6443/cas"
+  client:
+    service-id: "http://localhost:9094/order-service/login/cas"
+
+truststore:
+  override: true
+  password: "welcome1"
+  location: "trustStore.jks"
+  hostname-verifier:
+    override: true
+
+frontend:
+  angular-url: "http://localhost:4200"
+
+welcome:
+  message: "Order Service"

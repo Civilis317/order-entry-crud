@@ -12,7 +12,6 @@ import {ColumnHeader} from "../model/column-header";
   styleUrls: ['./order-list.component.css']
 })
 export class OrderListComponent implements OnInit {
-  columnHeaders: ColumnHeader[] = new Array<ColumnHeader>();
   dataSource: Order[];
   totalPages: number;
   pageButtons: number[];
@@ -24,17 +23,11 @@ export class OrderListComponent implements OnInit {
     private router: Router
   ) {
   }
-
   ngOnInit() {
     // see if state was stored
-    this.settings = this.stateService.get();
+    this.settings = this.stateService.pop(StateService.ORDERLIST_SETTINGS);
     if (!this.settings) {
-      // create new settings for the order table
-      this.settings = new OrderListSettings();
-      this.settings.page = 1;
-      this.settings.sortField = 'description';
-      this.settings.sortDirection = 'asc';
-      this.createColumnHeaders();
+      this.initSettings();
     }
     this.retrievePage();
   }
@@ -52,17 +45,26 @@ export class OrderListComponent implements OnInit {
       this.calculatePagination();
 
       // save this state
-      this.stateService.push(this.settings);
+      this.stateService.push(StateService.ORDERLIST_SETTINGS, this.settings);
     })
   }
 
+  private initSettings(): void {
+    this.settings = new OrderListSettings();
+    this.settings.page = 1;
+    this.settings.sortField = 'description';
+    this.settings.sortDirection = 'asc';
+    this.createColumnHeaders();
+  }
+
   private createColumnHeaders() : void {
-    this.columnHeaders.push(new ColumnHeader("Date", "15%", "date", "fas fa-sort"));
-    this.columnHeaders.push(new ColumnHeader("Description", "55%", "description", "fas fa-sort"));
-    this.columnHeaders.push(new ColumnHeader("Customer", "15%", null, null));
-    // this.columnHeaders.push(new ColumnHeader("Customer", "15%", "customer", "fas fa-sort"));
-    this.columnHeaders.push(new ColumnHeader("Employee", "15%", "employee", "fas fa-sort"));
-    this.columnHeaders.push(new ColumnHeader("", "5%", null, null))
+    let columnHeaders: ColumnHeader[] = new Array<ColumnHeader>();
+    columnHeaders.push(new ColumnHeader("Date", "15%", "date", "fas fa-sort"));
+    columnHeaders.push(new ColumnHeader("Description", "55%", "description", "fas fa-sort"));
+    columnHeaders.push(new ColumnHeader("Customer", "15%", "customer", "fas fa-sort"));
+    columnHeaders.push(new ColumnHeader("Employee", "15%", "employee", "fas fa-sort"));
+    columnHeaders.push(new ColumnHeader("", "5%", null, null))
+    this.settings.columnHeaders = columnHeaders;
   }
 
   /**
